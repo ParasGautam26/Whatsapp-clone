@@ -22,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-    // TODO: Add member variables here:
     private FirebaseAuth mAuth;
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -47,14 +46,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // TODO: Grab an instance of FirebaseAuth
         mAuth= FirebaseAuth.getInstance();
 
     }
 
     // Executed when Sign in button pressed
     public void signInExistingUser(View v)   {
-        // TODO: Call attemptLogin() here
         attemptLogin();
 
     }
@@ -66,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // TODO: Complete the attemptLogin() method
     private void attemptLogin() {
             String email = mEmailView.getText().toString();
             String password = mPasswordView.getText().toString();
@@ -74,7 +70,6 @@ public class LoginActivity extends AppCompatActivity {
                     return;
             }
             Toast.makeText(this, "Login in progress...", Toast.LENGTH_SHORT).show();
-        // TODO: Use FirebaseAuth to sign in with email & password
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -95,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    // TODO: Show error on screen with an alert dialog
         private void showAlertDialog(String message){
                 new AlertDialog.Builder(this)
                         .setTitle("oops")

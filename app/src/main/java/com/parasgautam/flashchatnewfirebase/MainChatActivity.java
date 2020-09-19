@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainChatActivity extends AppCompatActivity {
 
-    // TODO: Add member variables here:
+
     private String mDisplayName;
     private ListView mChatListView;
     private EditText mInputText;
@@ -28,7 +28,7 @@ public class MainChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_chat);
 
-        // TODO: Set up the display name and get the Firebase reference
+
         setupDisplayName();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
         // Link the Views in the layout to the Java code
@@ -37,7 +37,7 @@ public class MainChatActivity extends AppCompatActivity {
         mChatListView = findViewById(R.id.chat_list_view);
 
 
-        // TODO: Send the message when the "enter" button is pressed
+
             mInputText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
                 public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -46,7 +46,7 @@ public class MainChatActivity extends AppCompatActivity {
                 }
             });
 
-        // TODO: Add an OnClickListener to the sendButton to send a message
+
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +55,7 @@ public class MainChatActivity extends AppCompatActivity {
         });
     }
 
-    // TODO: Retrieve the display name from the Shared Preferences
+
         private void setupDisplayName(){
             SharedPreferences prefs = getSharedPreferences(RegisterActivity.CHAT_PREFS,MODE_PRIVATE);
             mDisplayName = prefs.getString(RegisterActivity.DISPLAY_NAME_KEY,null);
@@ -65,7 +65,7 @@ public class MainChatActivity extends AppCompatActivity {
 
     private void sendMessage() {
 
-        // TODO: Grab the text the user typed in and push the message to Firebase
+
             String input = mInputText.getText().toString();
             if(!input.equals("")){
                 InstantMessage instantMessage = new InstantMessage(input,mDisplayName);
@@ -74,7 +74,7 @@ public class MainChatActivity extends AppCompatActivity {
             }
     }
 
-    // TODO: Override the onStart() lifecycle method. Setup the adapter here.
+
 
 
     @Override

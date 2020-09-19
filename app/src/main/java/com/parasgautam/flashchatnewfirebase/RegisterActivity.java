@@ -27,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     public static final String CHAT_PREFS = "ChatPrefs";
     public static final String DISPLAY_NAME_KEY = "username";
 
-    // TODO: Add member variables here:
+
     // UI references.
     private AutoCompleteTextView mEmailView;
     private AutoCompleteTextView mUsernameView;
@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        // TODO: Get hold of an instance of FirebaseAuth
+
         mAuth = FirebaseAuth.getInstance();
 
     }
@@ -106,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
             // form field with an error.
             focusView.requestFocus();
         } else {
-            // TODO: Call create FirebaseUser() here
+
             createFirebaseUser();
 
         }
@@ -118,12 +118,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Add own logic to check for a valid password (minimum 6 characters)
+
         String confirmPassword = mConfirmPasswordView.getText().toString();
         return confirmPassword.equals(password) && password.length()>4;
     }
 
-    // TODO: Create a Firebase user
+
         private void createFirebaseUser(){
             String email = mEmailView.getText().toString();
             String password = mPasswordView.getText().toString();
@@ -145,14 +145,13 @@ public class RegisterActivity extends AppCompatActivity {
             });
         }
 
-    // TODO: Save the display name to Shared Preferences
+
         private void saveDisplayName(){
             String displayName = mUsernameView.getText().toString();
             SharedPreferences prefs = getSharedPreferences(CHAT_PREFS,0);
             prefs.edit().putString(DISPLAY_NAME_KEY,displayName).apply();
         }
 
-    // TODO: Create an alert dialog to show in case registration failed
         private void showErrorDialog(String message){
             new AlertDialog.Builder(this)
                     .setTitle("oops")
